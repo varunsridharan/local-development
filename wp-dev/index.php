@@ -27,10 +27,9 @@ if ( ! class_exists( 'VSP_Local_WP_Handler' ) ) {
 		 * VSP_Local_WP_Handler constructor.
 		 *
 		 * @uses setup_smtp_info
+		 * @uses copy_muplugins
 		 */
 		public function __construct() {
-			add_action( 'phpmailer_init', array( &$this, 'setup_smtp_info' ) );
-
 			$this->plugins_copy = array(
 				VSP_LOCAL_DIR . 'wp-plugins/query-monitor'                   => 'wp-content/plugins/query-monitor/query-monitor.php',
 				VSP_LOCAL_DIR . 'wp-plugins/woo-preview-emails'              => 'wp-content/plugins/woo-preview-emails/woocommerce-preview-emails.php',
@@ -48,6 +47,8 @@ if ( ! class_exists( 'VSP_Local_WP_Handler' ) ) {
 				'debug-quick-look'                                => 'wp-content/mu-plugins/debug-quick-look/debug-quick-look.php',
 			);
 
+			add_action( 'phpmailer_init', array( &$this, 'setup_smtp_info' ) );
+			add_action( 'plugins_loaded', array( &$this, 'copy_muplugins' ), -10000 );
 			$this->handle_debug_log_file();
 			$this->copy_plugins();
 		}
@@ -81,6 +82,22 @@ if ( ! class_exists( 'VSP_Local_WP_Handler' ) ) {
 					}
 				} elseif ( file_exists( $dist_path ) && ! $this->is_plugin_allowed( $orginal_path ) ) {
 					@unlink( $dist_path );
+				}
+			}
+		}
+
+		/**
+		 * Copy Plugins From Template To Sites MU Folder.
+		 */
+		protected function copy_muplugins() {
+			foreach ( $this->mu_plugins_copy as $orginal_path => $new_path ) {
+				$dist_path = ABSPATH . $new_path;
+				if ( ! file_exists( $dist_path ) && $this->is_plugin_allowed( $orginal_path ) ) {
+					vsp_dev_copy( $orginal_path, ABSPATH . dirname( $new_path ) );
+				}
+
+				if ( file_exists( $dist_path ) && $this->is_plugin_allowed( $orginal_path ) ) {
+					include $dist_path;
 				}
 			}
 		}
