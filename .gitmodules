@@ -7,3 +7,6 @@
 [submodule "wp-plugins/woo-preview-emails"]
 	path = wp-plugins/woo-preview-emails
 	url = https://github.com/digamber89/woocommerce-preview-emails
+[submodule "wp-plugins/user-switching"]
+	path = wp-plugins/user-switching
+	url = https://github.com/johnbillion/user-switching

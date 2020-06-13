@@ -43,7 +43,7 @@ if ( ! class_exists( 'VSP_Local_WP_Handler' ) ) {
 				VSP_LOCAL_DIR . 'wp-plugins/pi-for-wc'                          => 'wp-content/mu-plugins/pi-for-wc/wc-performance-improvements.php',
 				VSP_WP_LOCAL_TEMPLATE . 'wp-content/plugins/classic-editor'     => 'wp-content/mu-plugins/classic-editor/classic-editor.php',
 				VSP_WP_LOCAL_TEMPLATE . 'wp-content/plugins/wordpress-importer' => 'wp-content/mu-plugins/wordpress-importer/wordpress-importer.php',
-				'user-switching'                                                => 'wp-content/mu-plugins/user-switching/user-switching.php',
+				VSP_LOCAL_DIR . 'wp-plugins/user-switching'                     => 'wp-content/mu-plugins/user-switching/user-switching.php',
 				'inspector'                                                     => 'wp-content/mu-plugins/inspector/inspector.php',
 				'debug-quick-look'                                              => 'wp-content/mu-plugins/debug-quick-look/debug-quick-look.php',
 			);
