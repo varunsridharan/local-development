@@ -136,11 +136,13 @@ if ( ! class_exists( 'VSP_Local_WP_Handler' ) ) {
 			$ctime    = date( 'D-d-M-Y-h-i-s-a' );
 			$old_file = ABSPATH . 'wp-content/debug.log';
 			$size     = ( file_exists( $old_file ) ) ? filesize( $old_file ) : 0;
-			if ( $size >= WP_DEBUG_MAX_SIZE ) {
+			if ( $size >= WP_DEBUG_LOG_MAX_SIZE ) {
 				@mkdir( ABSPATH . 'wp-content/' . WP_DEBUG_LOG_OVERFLOW_STORAGE . '/' );
 				copy( $old_file, ABSPATH . 'wp-content/' . WP_DEBUG_LOG_OVERFLOW_STORAGE . '/' . $ctime . '.log' );
 				@file_put_contents( ABSPATH . 'wp-content/debug.log', '' );
 			}
 		}
 	}
+
+	new VSP_Local_WP_Handler();
 }

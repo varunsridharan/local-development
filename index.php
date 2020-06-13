@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . 'global/functions.php';
+require_once __DIR__ . '/global/functions.php';
 
 vsp_local_define( 'KB_IN_BYTES', ( 1024 ) );
 
