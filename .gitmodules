@@ -4,3 +4,6 @@
 [submodule "wp-plugins/pi-for-wc"]
 	path = wp-plugins/pi-for-wc
 	url = https://github.com/lukecav/performance-improvements-for-woocommerce
+[submodule "wp-plugins/woo-preview-emails"]
+	path = wp-plugins/woo-preview-emails
+	url = https://github.com/digamber89/woocommerce-preview-emails
