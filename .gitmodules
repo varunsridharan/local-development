@@ -1,3 +1,6 @@
 [submodule "wp-plugins/query-monitor-extended"]
 	path = wp-plugins/query-monitor-extended
 	url = https://github.com/crstauf/query-monitor-extend
+[submodule "wp-plugins/pi-for-wc"]
+	path = wp-plugins/pi-for-wc
+	url = https://github.com/lukecav/performance-improvements-for-woocommerce
