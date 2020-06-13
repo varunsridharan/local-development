@@ -18,6 +18,12 @@ which are very helpful in my local development.
 ## Usage
 This repo is download locally and `index.php` file gets included directly into **php.ini**
 
+### Step 1
+```text
+composer install
+```
+
+### Step 2
 ```ini
 ; Automatically add files before PHP document.
 ; http://php.net/auto-prepend-file
