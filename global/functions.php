@@ -33,7 +33,7 @@ if ( ! function_exists( 'console' ) ) {
 	}
 }
 
-if ( ! function_exists( 'wponion_timer' ) ) {
+if ( ! function_exists( 'vsp_timer' ) ) {
 	/**
 	 * @param string $key Unique Timer Key.
 	 * @param bool   $stop true / false
@@ -41,7 +41,7 @@ if ( ! function_exists( 'wponion_timer' ) ) {
 	 *
 	 * @return bool|string
 	 */
-	function wponion_timer( $key = '', $stop = false, $precision = 3 ) {
+	function vsp_timer( $key = '', $stop = false, $precision = 3 ) {
 		if ( ! class_exists( 'VSP_Local_Benchmark', false ) ) {
 			require_once VSP_LOCAL_DIR . '/global/benchmark.php';
 		}

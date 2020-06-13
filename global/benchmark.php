@@ -1,5 +1,10 @@
 <?php
 if ( ! class_exists( 'VSP_Local_Benchmark', false ) ) {
+	/**
+	 * Class VSP_Local_Benchmark
+	 *
+	 * @author Varun Sridharan <varunsridharan23@gmail.com>
+	 */
 	class VSP_Local_Benchmark {
 		/**
 		 * Stores Timer Information.
