@@ -127,3 +127,28 @@ if ( ! function_exists( 'vspdev_link_file' ) ) {
 		vspdev_link_muplugins( $path );
 	}
 }
+
+if ( ! function_exists( 'vsp_dev_copy' ) ) {
+	/**
+	 * @param $src
+	 * @param $dst
+	 */
+	function vsp_dev_copy( $src, $dst ) {
+		if ( is_dir( $src ) ) {
+			$dir = opendir( $src . '/' );
+			@mkdir( $dst );
+			while ( false !== ( $file = readdir( $dir ) ) ) {
+				if ( ! in_array( $file, array( '.', '..', '.git', 'node_module' ), true ) ) {
+					if ( is_dir( $src . '/' . $file ) ) {
+						vsp_dev_copy( $src . '/' . $file, $dst . '/' . $file );
+					} else {
+						copy( $src . '/' . $file, $dst . '/' . $file );
+					}
+				}
+			}
+			closedir( $dir );
+		} else {
+			copy( $src, $dst );
+		}
+	}
+}

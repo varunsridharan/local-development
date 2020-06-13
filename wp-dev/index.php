@@ -49,7 +49,42 @@ if ( ! class_exists( 'VSP_Local_WP_Handler' ) ) {
 			);
 
 			$this->handle_debug_log_file();
+			$this->copy_plugins();
 		}
+
+		/**
+		 * Check if a plugin is allowed.
+		 *
+		 * @param $plugin
+		 *
+		 * @return bool
+		 * @since {NEWVERSION}
+		 */
+		private function is_plugin_allowed( $plugin ) {
+			$name = basename( $plugin );
+			return ( defined( 'VSP_PLUGIN_' . $name ) && false === constant( 'VSP_PLUGIN_' . $name ) ) ? false : true;
+		}
+
+		/**
+		 * Copies Files From Local To Current WP.
+		 *
+		 * @since {NEWVERSION}
+		 */
+		protected function copy_plugins() {
+			foreach ( $this->plugins_copy as $orginal_path => $new_path ) {
+				$dist_path = ABSPATH . '\\' . $new_path;
+				if ( ! file_exists( $dist_path ) && $this->is_plugin_allowed( $orginal_path ) ) {
+					if ( is_dir( $orginal_path ) ) {
+						vsp_dev_copy( $orginal_path, ABSPATH . '/' . dirname( $new_path ) );
+					} else {
+						vsp_dev_copy( $orginal_path, $dist_path );
+					}
+				} elseif ( file_exists( $dist_path ) && ! $this->is_plugin_allowed( $orginal_path ) ) {
+					@unlink( $dist_path );
+				}
+			}
+		}
+
 
 		/**
 		 * Updates SMTP Infomration With WordPress To Work With Local SMTP Server.
