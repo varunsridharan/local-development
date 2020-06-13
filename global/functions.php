@@ -110,7 +110,7 @@ if ( ! function_exists( 'vspdev_link_muplugins' ) ) {
 			//}
 			if ( ! file_exists( $path . 'wp-content/mu-plugins/vsp-dev.php' ) ) {
 				@mkdir( $path . 'wp-content/mu-plugins/' );
-				symlink( 'E:\localhost\www\wp\template\wp-content\mu-plugins\vsp-dev.php', $path . 'wp-content/mu-plugins/vsp-dev.php' );
+				symlink( VSP_LOCAL_DIR . 'wp-dev/index.php', $path . 'wp-content/mu-plugins/vsp-dev.php' );
 			}
 		}
 	}
