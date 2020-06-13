@@ -37,14 +37,13 @@ if ( ! class_exists( 'VSP_Local_WP_Handler' ) ) {
 			);
 
 			$this->mu_plugins_copy = array(
-				VSP_LOCAL_DIR . 'wp-plugins/query-monitor-extend' => 'wp-content/mu-plugins/query-monitor-extend/query-monitor-extend.php',
+				VSP_LOCAL_DIR . 'wp-plugins/query-monitor-extended' => 'wp-content/mu-plugins/query-monitor-extend/query-monitor-extend.php',
 				VSP_LOCAL_DIR . 'wp-plugins/theme-inspector'      => 'wp-content/mu-plugins/theme-inspector/theme-inspector.php',
 				VSP_LOCAL_DIR . 'wp-plugins/pi-for-wc'            => 'wp-content/mu-plugins/pi-for-wc/wc-performance-improvements.php',
 				VSP_LOCAL_DIR . 'wp-plugins/classic-editor'       => 'wp-content/mu-plugins/classic-editor/classic-editor.php',
 				VSP_LOCAL_DIR . 'wp-plugins/wordpress-importer'   => 'wp-content/mu-plugins/wordpress-importer/wordpress-importer.php',
 				VSP_LOCAL_DIR . 'wp-plugins/user-switching'       => 'wp-content/mu-plugins/user-switching/user-switching.php',
 				VSP_LOCAL_DIR . 'wp-plugins/inspector'            => 'wp-content/mu-plugins/inspector/inspector.php',
-				'debug-quick-look'                                => 'wp-content/mu-plugins/debug-quick-look/debug-quick-look.php',
 			);
 
 			add_action( 'phpmailer_init', array( &$this, 'setup_smtp_info' ) );
@@ -89,7 +88,7 @@ if ( ! class_exists( 'VSP_Local_WP_Handler' ) ) {
 		/**
 		 * Copy Plugins From Template To Sites MU Folder.
 		 */
-		protected function copy_muplugins() {
+		public function copy_muplugins() {
 			foreach ( $this->mu_plugins_copy as $orginal_path => $new_path ) {
 				$dist_path = ABSPATH . $new_path;
 				if ( ! file_exists( $dist_path ) && $this->is_plugin_allowed( $orginal_path ) ) {
