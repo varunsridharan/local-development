@@ -1,4 +1,24 @@
 <?php
+if ( ! function_exists( 'vsp_local_define' ) ) {
+	/**
+	 * Defines A Constant if not exists.
+	 *
+	 * @param string $key
+	 * @param mixed  $value
+	 * @param mixed  $case_insensitive If set to true, the constant will be defined case-insensitive.
+	 *
+	 * @return bool
+	 */
+	function vsp_local_define( $key, $value, $case_insensitive = false ) {
+		if ( ! defined( $key ) ) {
+			define( $key, $value, $case_insensitive );
+			return true;
+		}
+		return false;
+	}
+}
+
+
 if ( ! function_exists( 'printr' ) ) {
 	/**
 	 * Functions uses print_r along with html pre tag.
