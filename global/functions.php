@@ -19,7 +19,6 @@ if ( ! function_exists( 'vsp_local_define' ) ) {
 	}
 }
 
-
 if ( ! function_exists( 'printr' ) ) {
 	/**
 	 * Functions uses print_r along with html pre tag.
@@ -150,5 +149,29 @@ if ( ! function_exists( 'vsp_dev_copy' ) ) {
 		} else {
 			copy( $src, $dst );
 		}
+	}
+}
+
+if ( ! function_exists( 'lorem_ispum' ) ) {
+	/**
+	 * @return bool|\joshtronic\LoremIpsum
+	 * @example (
+	 *    Generating Words
+	 *        echo '1 word: '  . $lipsum->word();
+	 *        echo '5 words: ' . $lipsum->words(5);
+	 *    Generating Sentences
+	 *        echo '1 sentence: '  . $lipsum->sentence();
+	 *        echo '5 sentences: ' . $lipsum->sentences(5);
+	 *    Generating Paragraphs
+	 *        echo '1 paragraph: '  . $lipsum->paragraph();
+	 *        echo '5 paragraphs: ' . $lipsum->paragraphs(5);
+	 * )
+	 */
+	function lorem_ispum() {
+		static $lipsum = false;
+		if ( false === $lipsum ) {
+			$lipsum = new joshtronic\LoremIpsum();
+		}
+		return $lipsum;
 	}
 }

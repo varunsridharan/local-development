@@ -1,5 +1,6 @@
 {
-    "require": {
-        "digitalnature/php-ref": "^1.3"
-    }
+  "require" : {
+	"digitalnature/php-ref"     : "^1.3",
+	"joshtronic/php-loremipsum" : "dev-master"
+  }
 }

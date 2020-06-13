@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b7a045dd71c55c6b33d3585ba671e532",
+    "content-hash": "01dfb336400a9a8f8b3821ff9188e7ff",
     "packages": [
         {
             "name": "digitalnature/php-ref",
@@ -40,12 +40,60 @@
                 "var_dump"
             ],
             "time": "2020-01-28T21:41:16+00:00"
+        },
+        {
+            "name": "joshtronic/php-loremipsum",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joshtronic/php-loremipsum.git",
+                "reference": "f0ec43a045b9bfa5e68cac01805e6312a9e9c7e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joshtronic/php-loremipsum/zipball/f0ec43a045b9bfa5e68cac01805e6312a9e9c7e6",
+                "reference": "f0ec43a045b9bfa5e68cac01805e6312a9e9c7e6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "joshtronic\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Josh Sherman",
+                    "email": "hello@joshtronic.com",
+                    "homepage": "https://joshtronic.com"
+                }
+            ],
+            "description": "Lorem ipsum generator in PHP without dependencies",
+            "homepage": "https://github.com/joshtronic/php-loremipsum",
+            "keywords": [
+                "generator",
+                "ipsum",
+                "lorem"
+            ],
+            "time": "2020-06-02T03:25:24+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "joshtronic/php-loremipsum": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
