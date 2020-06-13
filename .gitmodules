@@ -10,3 +10,6 @@
 [submodule "wp-plugins/user-switching"]
 	path = wp-plugins/user-switching
 	url = https://github.com/johnbillion/user-switching
+[submodule "wp-plugins/query-monitor"]
+	path = wp-plugins/query-monitor
+	url = https://github.com/johnbillion/query-monitor

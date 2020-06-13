@@ -32,20 +32,20 @@ if ( ! class_exists( 'VSP_Local_WP_Handler' ) ) {
 			add_action( 'phpmailer_init', array( &$this, 'setup_smtp_info' ) );
 
 			$this->plugins_copy = array(
-				VSP_WP_LOCAL_TEMPLATE . 'wp-content/plugins/query-monitor'      => 'wp-content/plugins/query-monitor/query-monitor.php',
-				VSP_WP_LOCAL_TEMPLATE . 'wp-content/plugins/woo-preview-emails' => 'wp-content/plugins/woo-preview-emails/woocommerce-preview-emails.php',
-				VSP_WP_LOCAL_TEMPLATE . 'wp-content/plugins/test-plugin.php'    => 'wp-content/plugins/test-plugin.php',
+				VSP_LOCAL_DIR . 'wp-plugins/query-monitor'                   => 'wp-content/plugins/query-monitor/query-monitor.php',
+				VSP_LOCAL_DIR . 'wp-plugins/woo-preview-emails'              => 'wp-content/plugins/woo-preview-emails/woocommerce-preview-emails.php',
+				VSP_WP_LOCAL_TEMPLATE . 'wp-content/plugins/test-plugin.php' => 'wp-content/plugins/test-plugin.php',
 			);
 
 			$this->mu_plugins_copy = array(
-				VSP_LOCAL_DIR . 'wp-plugins/query-monitor-extend'               => 'wp-content/mu-plugins/query-monitor-extend/query-monitor-extend.php',
-				VSP_LOCAL_DIR . 'wp-plugins/theme-inspector'                    => 'wp-content/mu-plugins/theme-inspector/theme-inspector.php',
-				VSP_LOCAL_DIR . 'wp-plugins/pi-for-wc'                          => 'wp-content/mu-plugins/pi-for-wc/wc-performance-improvements.php',
-				VSP_WP_LOCAL_TEMPLATE . 'wp-content/plugins/classic-editor'     => 'wp-content/mu-plugins/classic-editor/classic-editor.php',
-				VSP_WP_LOCAL_TEMPLATE . 'wp-content/plugins/wordpress-importer' => 'wp-content/mu-plugins/wordpress-importer/wordpress-importer.php',
-				VSP_LOCAL_DIR . 'wp-plugins/user-switching'                     => 'wp-content/mu-plugins/user-switching/user-switching.php',
-				'inspector'                                                     => 'wp-content/mu-plugins/inspector/inspector.php',
-				'debug-quick-look'                                              => 'wp-content/mu-plugins/debug-quick-look/debug-quick-look.php',
+				VSP_LOCAL_DIR . 'wp-plugins/query-monitor-extend' => 'wp-content/mu-plugins/query-monitor-extend/query-monitor-extend.php',
+				VSP_LOCAL_DIR . 'wp-plugins/theme-inspector'      => 'wp-content/mu-plugins/theme-inspector/theme-inspector.php',
+				VSP_LOCAL_DIR . 'wp-plugins/pi-for-wc'            => 'wp-content/mu-plugins/pi-for-wc/wc-performance-improvements.php',
+				VSP_LOCAL_DIR . 'wp-plugins/classic-editor'       => 'wp-content/mu-plugins/classic-editor/classic-editor.php',
+				VSP_LOCAL_DIR . 'wp-plugins/wordpress-importer'   => 'wp-content/mu-plugins/wordpress-importer/wordpress-importer.php',
+				VSP_LOCAL_DIR . 'wp-plugins/user-switching'       => 'wp-content/mu-plugins/user-switching/user-switching.php',
+				VSP_LOCAL_DIR . 'wp-plugins/inspector'            => 'wp-content/mu-plugins/inspector/inspector.php',
+				'debug-quick-look'                                => 'wp-content/mu-plugins/debug-quick-look/debug-quick-look.php',
 			);
 		}
 
