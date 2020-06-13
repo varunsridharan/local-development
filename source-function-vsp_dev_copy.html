@@ -235,7 +235,7 @@
 </span><span id="110" class="l">            <span class="php-comment">//}</span>
 </span><span id="111" class="l">            <span class="php-keyword1">if</span> ( ! <span class="php-keyword2">file_exists</span>( <span class="php-var">$path</span> . <span class="php-quote">'wp-content/mu-plugins/vsp-dev.php'</span> ) ) {
 </span><span id="112" class="l">                @<span class="php-keyword2">mkdir</span>( <span class="php-var">$path</span> . <span class="php-quote">'wp-content/mu-plugins/'</span> );
-</span><span id="113" class="l">                <span class="php-keyword2">symlink</span>( <span class="php-quote">'E:\localhost\www\wp\template\wp-content\mu-plugins\vsp-dev.php'</span>, <span class="php-var">$path</span> . <span class="php-quote">'wp-content/mu-plugins/vsp-dev.php'</span> );
+</span><span id="113" class="l">                <span class="php-keyword2">symlink</span>( VSP_LOCAL_DIR . <span class="php-quote">'wp-dev/index.php'</span>, <span class="php-var">$path</span> . <span class="php-quote">'wp-content/mu-plugins/vsp-dev.php'</span> );
 </span><span id="114" class="l">            }
 </span><span id="115" class="l">        }
 </span><span id="116" class="l">    }
