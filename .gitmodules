@@ -1,0 +1,3 @@
+[submodule "wp-plugins/query-monitor-extended"]
+	path = wp-plugins/query-monitor-extended
+	url = https://github.com/crstauf/query-monitor-extend
