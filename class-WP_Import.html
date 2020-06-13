@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class WP_Import</title>
+
+	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Packages</h3>
+			<ul>
+				<li>
+					<a href="package-None.html">
+						None					</a>
+
+						</li>
+				<li>
+					<a href="package-WordPress.html">
+						WordPress<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="package-WordPress.Importer.html">
+						Importer					</a>
+
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-WP_Import.html">WP_Import</a></li>
+				<li><a href="class-WXR_Parser.html">WXR_Parser</a></li>
+				<li><a href="class-WXR_Parser_Regex.html">WXR_Parser_Regex</a></li>
+				<li><a href="class-WXR_Parser_SimpleXML.html">WXR_Parser_SimpleXML</a></li>
+				<li><a href="class-WXR_Parser_XML.html">WXR_Parser_XML</a></li>
+			</ul>
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li><a href="function-addslashes_strings_only.html">addslashes_strings_only</a></li>
+				<li><a href="function-map_deep.html">map_deep</a></li>
+				<li><a href="function-wp_slash_strings_only.html">wp_slash_strings_only</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+<span>Package</span>			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class WP_Import</h1>
+
+
+	<div class="description">
+	<p>WordPress importer class.</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+WP_Importer
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>WP_Import</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		<b>Package:</b> <a href="package-WordPress.html">WordPress</a>\<a href="package-WordPress.Importer.html">Importer</a><br>
+
+			<b>Located at</b> <a href="source-class-WP_Import.html#9-1407" title="Go to source code">wp-plugins/wordpress-importer/class-wp-import.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="dispatch" id="_dispatch">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_dispatch">#</a>
+		<code><a href="source-class-WP_Import.html#40-69" title="Go to source code">dispatch</a>( )</code>
+
+		<div class="description short">
+			<p>Registered callback function for the WordPress Importer</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Registered callback function for the WordPress Importer</p>
+
+<p>Manages the three separate stages of the WXR import process</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="import" id="_import">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_import">#</a>
+		<code><a href="source-class-WP_Import.html#71-97" title="Go to source code">import</a>( <span>string <var>$file</var></span> )</code>
+
+		<div class="description short">
+			<p>The main controller for the actual import stage.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>The main controller for the actual import stage.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$file</var></dt>
+					<dd>Path to the WXR file for importing</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="import_start" id="_import_start">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_import_start">#</a>
+		<code><a href="source-class-WP_Import.html#99-133" title="Go to source code">import_start</a>( <span>string <var>$file</var></span> )</code>
+
+		<div class="description short">
+			<p>Parses the WXR file and prepares us for the task of processing parsed data</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Parses the WXR file and prepares us for the task of processing parsed data</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$file</var></dt>
+					<dd>Path to the WXR file for importing</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="import_end" id="_import_end">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_import_end">#</a>
+		<code><a href="source-class-WP_Import.html#135-154" title="Go to source code">import_end</a>( )</code>
+
+		<div class="description short">
+			<p>Performs post-import cleanup of files and the cache</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Performs post-import cleanup of files and the cache</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="handle_upload" id="_handle_upload">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_handle_upload">#</a>
+		<code><a href="source-class-WP_Import.html#156-194" title="Go to source code">handle_upload</a>( )</code>
+
+		<div class="description short">
+			<p>Handles the WXR upload and initial parsing of the file to prepare for
+displaying author import options</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Handles the WXR upload and initial parsing of the file to prepare for
+displaying author import options</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>False if error uploading or invalid file, true otherwise
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="get_authors_from_import" id="_get_authors_from_import">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_get_authors_from_import">#</a>
+		<code><a href="source-class-WP_Import.html#196-224" title="Go to source code">get_authors_from_import</a>( <span>array <var>$import_data</var></span> )</code>
+
+		<div class="description short">
+			<p>Retrieve authors from parsed WXR data</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Retrieve authors from parsed WXR data</p>
+
+<p>Uses the provided author information from WXR 1.1 files
+or extracts info from each post for WXR 1.0 files</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$import_data</var></dt>
+					<dd>Data returned by a WXR parser</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="import_options" id="_import_options">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_import_options">#</a>
+		<code><a href="source-class-WP_Import.html#226-261" title="Go to source code">import_options</a>( )</code>
+
+		<div class="description short">
+			<p>Display pre-import options, author importing/mapping and option to
+fetch attachments</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Display pre-import options, author importing/mapping and option to
+fetch attachments</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="author_select" id="_author_select">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_author_select">#</a>
+		<code><a href="source-class-WP_Import.html#263-315" title="Go to source code">author_select</a>( <span>integer <var>$n</var></span>, <span>array <var>$author</var></span> )</code>
+
+		<div class="description short">
+			<p>Display import options for an individual author. That is, either create
+a new user based on import info or map to an existing user</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Display import options for an individual author. That is, either create
+a new user based on import info or map to an existing user</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$n</var></dt>
+					<dd>Index for each author in the form</dd>
+					<dt><var>$author</var></dt>
+					<dd>Author information, e.g. login, display name, email</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="get_author_mapping" id="_get_author_mapping">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_get_author_mapping">#</a>
+		<code><a href="source-class-WP_Import.html#317-374" title="Go to source code">get_author_mapping</a>( )</code>
+
+		<div class="description short">
+			<p>Map old author logins to local user IDs based on decisions made
+in import options form. Can map to an existing user, create a new user
+or falls back to the current user in case of error with either of the previous</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Map old author logins to local user IDs based on decisions made
+in import options form. Can map to an existing user, create a new user
+or falls back to the current user in case of error with either of the previous</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="process_categories" id="_process_categories">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_process_categories">#</a>
+		<code><a href="source-class-WP_Import.html#376-423" title="Go to source code">process_categories</a>( )</code>
+
+		<div class="description short">
+			<p>Create new categories based on import information</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Create new categories based on import information</p>
+
+<p>Doesn't create a new category if its slug already exists</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="process_tags" id="_process_tags">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_process_tags">#</a>
+		<code><a href="source-class-WP_Import.html#425-468" title="Go to source code">process_tags</a>( )</code>
+
+		<div class="description short">
+			<p>Create new post tags based on import information</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Create new post tags based on import information</p>
+
+<p>Doesn't create a tag if its slug already exists</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="process_terms" id="_process_terms">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_process_terms">#</a>
+		<code><a href="source-class-WP_Import.html#470-523" title="Go to source code">process_terms</a>( )</code>
+
+		<div class="description short">
+			<p>Create new terms based on import information</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Create new terms based on import information</p>
+
+<p>Doesn't create a term its slug already exists</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="process_termmeta" id="_process_termmeta">
+
+		<td class="attributes"><code>
+			 protected 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_process_termmeta">#</a>
+		<code><a href="source-class-WP_Import.html#525-588" title="Go to source code">process_termmeta</a>( <span>array <var>$term</var></span>, <span>integer <var>$term_id</var></span> )</code>
+
+		<div class="description short">
+			<p>Add metadata to imported term.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Add metadata to imported term.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$term</var></dt>
+					<dd>Term data from WXR import.</dd>
+					<dt><var>$term_id</var></dt>
+					<dd>ID of the newly created term.</dd>
+				</dl></div>
+
+
+
+				<h4>Since</h4>
+				<div class="list">
+						0.6.2<br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="process_posts" id="_process_posts">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_process_posts">#</a>
+		<code><a href="source-class-WP_Import.html#590-848" title="Go to source code">process_posts</a>( )</code>
+
+		<div class="description short">
+			<p>Create new posts based on import information</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Create new posts based on import information</p>
+
+<p>Posts marked as having a parent which doesn't exist will become top level items.
+Doesn't create a new post if: the post type doesn't exist, the given post ID
+is already noted as imported or a post with the same title and date already exists.
+Note that new/updated terms, comments and meta are imported for the last of the above.</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="process_menu_item" id="_process_menu_item">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_process_menu_item">#</a>
+		<code><a href="source-class-WP_Import.html#850-936" title="Go to source code">process_menu_item</a>( <span>array <var>$item</var></span> )</code>
+
+		<div class="description short">
+			<p>Attempt to create a new menu item from import data</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Attempt to create a new menu item from import data</p>
+
+<p>Fails for draft, orphaned menu items and those without an associated nav_menu
+or an invalid nav_menu term. If the post type or term object which the menu item
+represents doesn't exist then the menu item will not be imported (waits until the
+end of the import to retry again before discarding).</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$item</var></dt>
+					<dd>Menu item details from WXR file</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="process_attachment" id="_process_attachment">
+
+		<td class="attributes"><code>
+			 public 
+
+			integer|WP_Error
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_process_attachment">#</a>
+		<code><a href="source-class-WP_Import.html#938-981" title="Go to source code">process_attachment</a>( <span>array <var>$post</var></span>, <span>string <var>$url</var></span> )</code>
+
+		<div class="description short">
+			<p>If fetching attachments is enabled then attempt to create a new attachment</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>If fetching attachments is enabled then attempt to create a new attachment</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$post</var></dt>
+					<dd>Attachment post details from WXR</dd>
+					<dt><var>$url</var></dt>
+					<dd>URL to fetch attachment from</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer|WP_Error<br>Post ID on success, WP_Error otherwise
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fetch_remote_file" id="_fetch_remote_file">
+
+		<td class="attributes"><code>
+			 public 
+
+			array|WP_Error
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fetch_remote_file">#</a>
+		<code><a href="source-class-WP_Import.html#983-1135" title="Go to source code">fetch_remote_file</a>( <span>string <var>$url</var></span>, <span>array <var>$post</var></span> )</code>
+
+		<div class="description short">
+			<p>Attempt to download a remote file attachment</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Attempt to download a remote file attachment</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$url</var></dt>
+					<dd>URL of item to fetch</dd>
+					<dt><var>$post</var></dt>
+					<dd>Attachment details</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					array|WP_Error<br>Local file location details on success, WP_Error otherwise
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="backfill_parents" id="_backfill_parents">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_backfill_parents">#</a>
+		<code><a href="source-class-WP_Import.html#1137-1177" title="Go to source code">backfill_parents</a>( )</code>
+
+		<div class="description short">
+			<p>Attempt to associate posts and menu items with previously missing parents</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Attempt to associate posts and menu items with previously missing parents</p>
+
+<p>An imported post's parent may not have been imported when it was first created
+so try again. Similarly for child menu items and menu items which were missing
+the object (e.g. post) they represent in the menu</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="backfill_attachment_urls" id="_backfill_attachment_urls">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_backfill_attachment_urls">#</a>
+		<code><a href="source-class-WP_Import.html#1179-1193" title="Go to source code">backfill_attachment_urls</a>( )</code>
+
+		<div class="description short">
+			<p>Use stored mapping information to update old attachment URLs</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Use stored mapping information to update old attachment URLs</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="remap_featured_images" id="_remap_featured_images">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_remap_featured_images">#</a>
+		<code><a href="source-class-WP_Import.html#1195-1208" title="Go to source code">remap_featured_images</a>( )</code>
+
+		<div class="description short">
+			<p>Update _thumbnail_id meta to new, imported attachment IDs</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Update _thumbnail_id meta to new, imported attachment IDs</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parse" id="_parse">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parse">#</a>
+		<code><a href="source-class-WP_Import.html#1210-1219" title="Go to source code">parse</a>( <span>string <var>$file</var></span> )</code>
+
+		<div class="description short">
+			<p>Parse a WXR file</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Parse a WXR file</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$file</var></dt>
+					<dd>Path to WXR file for parsing</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					array<br>Information gathered from the WXR file
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="header" id="_header">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_header">#</a>
+		<code><a href="source-class-WP_Import.html#1222-1234" title="Go to source code">header</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="footer" id="_footer">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_footer">#</a>
+		<code><a href="source-class-WP_Import.html#1237-1239" title="Go to source code">footer</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="greet" id="_greet">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_greet">#</a>
+		<code><a href="source-class-WP_Import.html#1241-1250" title="Go to source code">greet</a>( )</code>
+
+		<div class="description short">
+			<p>Display introductory text and file upload form</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Display introductory text and file upload form</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="is_valid_meta_key" id="_is_valid_meta_key">
+
+		<td class="attributes"><code>
+			 public 
+
+			string|boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_is_valid_meta_key">#</a>
+		<code><a href="source-class-WP_Import.html#1252-1264" title="Go to source code">is_valid_meta_key</a>( <span>string <var>$key</var></span> )</code>
+
+		<div class="description short">
+			<p>Decide if the given meta key maps to information we will want to import</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Decide if the given meta key maps to information we will want to import</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd>The meta key to check</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string|boolean<br>The key if we do want to import, false if not
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="allow_create_users" id="_allow_create_users">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_allow_create_users">#</a>
+		<code><a href="source-class-WP_Import.html#1266-1274" title="Go to source code">allow_create_users</a>( )</code>
+
+		<div class="description short">
+			<p>Decide whether or not the importer is allowed to create users.
+Default is true, can be filtered via import_allow_create_users</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Decide whether or not the importer is allowed to create users.
+Default is true, can be filtered via import_allow_create_users</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>True if creating users is allowed
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="allow_fetch_attachments" id="_allow_fetch_attachments">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_allow_fetch_attachments">#</a>
+		<code><a href="source-class-WP_Import.html#1276-1285" title="Go to source code">allow_fetch_attachments</a>( )</code>
+
+		<div class="description short">
+			<p>Decide whether or not the importer should attempt to download attachment files.
+Default is true, can be filtered via import_allow_fetch_attachments. The choice
+made at the import options screen must also be true, false here hides that checkbox.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Decide whether or not the importer should attempt to download attachment files.
+Default is true, can be filtered via import_allow_fetch_attachments. The choice
+made at the import options screen must also be true, false here hides that checkbox.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>True if downloading attachments is allowed
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="max_attachment_size" id="_max_attachment_size">
+
+		<td class="attributes"><code>
+			 public 
+
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_max_attachment_size">#</a>
+		<code><a href="source-class-WP_Import.html#1287-1295" title="Go to source code">max_attachment_size</a>( )</code>
+
+		<div class="description short">
+			<p>Decide what the maximum file size for downloaded attachments is.
+Default is 0 (unlimited), can be filtered via import_attachment_size_limit</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Decide what the maximum file size for downloaded attachments is.
+Default is 0 (unlimited), can be filtered via import_attachment_size_limit</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer<br>Maximum attachment file size to import
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="bump_request_timeout" id="_bump_request_timeout">
+
+		<td class="attributes"><code>
+			 public 
+
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_bump_request_timeout">#</a>
+		<code><a href="source-class-WP_Import.html#1297-1303" title="Go to source code">bump_request_timeout</a>( <span> <var>$val</var></span> )</code>
+
+		<div class="description short">
+			<p>Added to http_request_timeout filter to force timeout at 60 seconds during import</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Added to http_request_timeout filter to force timeout at 60 seconds during import</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer<br>60
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="cmpr_strlen" id="_cmpr_strlen">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_cmpr_strlen">#</a>
+		<code><a href="source-class-WP_Import.html#1306-1308" title="Go to source code">cmpr_strlen</a>( <span> <var>$a</var></span>, <span> <var>$b</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="get_filename_from_disposition" id="_get_filename_from_disposition">
+
+		<td class="attributes"><code>
+			 protected static
+
+			string|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_get_filename_from_disposition">#</a>
+		<code><a href="source-class-WP_Import.html#1310-1380" title="Go to source code">get_filename_from_disposition</a>( <span>string[] <var>$disposition_header</var></span> )</code>
+
+		<div class="description short">
+			<p>Parses filename from a Content-Disposition header value.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Parses filename from a Content-Disposition header value.</p>
+
+<p>As per RFC6266:
+ content-disposition = "Content-Disposition" ":" disposition-type <em>( ";" disposition-parm )
+ disposition-type    = "inline" | "attachment" | disp-ext-type ; case-insensitive disp-ext-type       = token
+ disposition-parm    = filename-parm | disp-ext-parm
+ filename-parm       = "filename" "=" value | "filename</em>" "=" ext-value
+ disp-ext-parm       = token "=" value | ext-token "=" ext-value ext-token           = <the characters in token, followed by "*"></p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$disposition_header</var></dt>
+					<dd>List of Content-Disposition header values.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string|null<br>Filename if available, or null if not found.
+				</div>
+
+
+				<h4>Since</h4>
+				<div class="list">
+						0.7.0<br>
+				</div>
+				<h4>See</h4>
+				<div class="list">
+						WP_REST_Attachments_Controller::get_filename_from_disposition()<br>
+				</div>
+				<h4>Link</h4>
+				<div class="list">
+						<a href="http://tools.ietf.org/html/rfc2388">http://tools.ietf.org/html/rfc2388</a><br>
+						<a href="http://tools.ietf.org/html/rfc6266">http://tools.ietf.org/html/rfc6266</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="get_file_extension_by_mime_type" id="_get_file_extension_by_mime_type">
+
+		<td class="attributes"><code>
+			 protected static
+
+			string|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_get_file_extension_by_mime_type">#</a>
+		<code><a href="source-class-WP_Import.html#1382-1406" title="Go to source code">get_file_extension_by_mime_type</a>( <span>string <var>$mime_type</var></span> )</code>
+
+		<div class="description short">
+			<p>Retrieves file extension by mime type.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Retrieves file extension by mime type.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$mime_type</var></dt>
+					<dd>Mime type to search extension for.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string|null<br>File extension if available, or null if not found.
+				</div>
+
+
+				<h4>Since</h4>
+				<div class="list">
+						0.7.0<br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="max_wxr_version" id="$max_wxr_version">
+		<td class="attributes"><code>
+			public  
+			float
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#13" title="Go to source code"><var>$max_wxr_version</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$max_wxr_version" class="anchor">#</a>
+				<code><span class="php-num">1.2</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="id" id="$id">
+		<td class="attributes"><code>
+			public  
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#15" title="Go to source code"><var>$id</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$id" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="version" id="$version">
+		<td class="attributes"><code>
+			public  
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#18" title="Go to source code"><var>$version</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$version" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="authors" id="$authors">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#19" title="Go to source code"><var>$authors</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$authors" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="posts" id="$posts">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#20" title="Go to source code"><var>$posts</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$posts" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="terms" id="$terms">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#21" title="Go to source code"><var>$terms</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$terms" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="categories" id="$categories">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#22" title="Go to source code"><var>$categories</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$categories" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="tags" id="$tags">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#23" title="Go to source code"><var>$tags</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$tags" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="base_url" id="$base_url">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#24" title="Go to source code"><var>$base_url</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$base_url" class="anchor">#</a>
+				<code><span class="php-quote">''</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="processed_authors" id="$processed_authors">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#27" title="Go to source code"><var>$processed_authors</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$processed_authors" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="author_mapping" id="$author_mapping">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#28" title="Go to source code"><var>$author_mapping</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$author_mapping" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="processed_terms" id="$processed_terms">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#29" title="Go to source code"><var>$processed_terms</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$processed_terms" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="processed_posts" id="$processed_posts">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#30" title="Go to source code"><var>$processed_posts</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$processed_posts" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="post_orphans" id="$post_orphans">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#31" title="Go to source code"><var>$post_orphans</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$post_orphans" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="processed_menu_items" id="$processed_menu_items">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#32" title="Go to source code"><var>$processed_menu_items</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$processed_menu_items" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="menu_item_orphans" id="$menu_item_orphans">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#33" title="Go to source code"><var>$menu_item_orphans</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$menu_item_orphans" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="missing_menu_items" id="$missing_menu_items">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#34" title="Go to source code"><var>$missing_menu_items</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$missing_menu_items" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="fetch_attachments" id="$fetch_attachments">
+		<td class="attributes"><code>
+			public  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#36" title="Go to source code"><var>$fetch_attachments</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$fetch_attachments" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="url_remap" id="$url_remap">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#37" title="Go to source code"><var>$url_remap</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$url_remap" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="featured_images" id="$featured_images">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WP_Import.html#38" title="Go to source code"><var>$featured_images</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$featured_images" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?58699d70ee1015ed63e509c64f4dd9d3b29ddbbe"></script>
+<script src="elementlist.js?b805555ea94bbabd6b3fa4c3cce1bf26d3bc0995"></script>
+</body>
+</html>
