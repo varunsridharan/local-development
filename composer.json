@@ -1,0 +1,5 @@
+{
+    "require": {
+        "digitalnature/php-ref": "^1.3"
+    }
+}
