@@ -102,7 +102,6 @@ if ( ! class_exists( 'VSP_Local_WP_Handler' ) ) {
 			}
 		}
 
-
 		/**
 		 * Updates SMTP Infomration With WordPress To Work With Local SMTP Server.
 		 *

@@ -13,3 +13,13 @@ which are very helpful in my local development.
 2. [Query Monitor Extended](https://github.com/crstauf/query-monitor-extend)
 3. [Woo Preview Emails](https://github.com/digamber89/woocommerce-preview-emails)
 3. [User Switching](https://github.com/johnbillion/user-switching)
+
+
+## Usage
+This repo is download locally and `index.php` file gets included directly into **php.ini**
+
+```ini
+; Automatically add files before PHP document.
+; http://php.net/auto-prepend-file
+auto_prepend_file = your-full-path/local-development/index.php
+``` 
