@@ -27,5 +27,9 @@ vsp_local_define( 'WP_DEBUG_LOG_MAX_SIZE', ( KB_IN_BYTES * 200 ) );
 vsp_local_define( 'WP_DEBUG_LOG_OVERFLOW_STORAGE', 'debuglogs' );
 
 
+if ( file_exists( VSP_LOCAL_DIR . 'vendor/autoload.php' ) ) {
+	require VSP_LOCAL_DIR . 'vendor/autoload.php';
+}
+
 // Checks if its a log view
 is_debug_view();
