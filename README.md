@@ -14,6 +14,9 @@ WordPress plugins that are bundled with it.
 3. [Woo Preview Emails](https://github.com/digamber89/woocommerce-preview-emails)
 4. [User Switching](https://github.com/johnbillion/user-switching)
 
+## Composer 
+1. [digitalnature/php-ref](https://github.com/digitalnature/php-ref)
+
 
 ## Usage
 This repo is download locally and `index.php` file gets included directly into **php.ini**
