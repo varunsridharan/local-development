@@ -16,6 +16,7 @@ WordPress plugins that are bundled with it.
 
 ## Composer 
 1. [digitalnature/php-ref](https://github.com/digitalnature/php-ref)
+1. [joshtronic/php-loremipsum](https://github.com/joshtronic/php-loremipsum)
 
 
 ## Usage
