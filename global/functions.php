@@ -8,6 +8,7 @@ if ( ! function_exists( 'vsp_local_define' ) ) {
 	 * @param mixed  $case_insensitive If set to true, the constant will be defined case-insensitive.
 	 *
 	 * @return bool
+	 * @uses \define()
 	 */
 	function vsp_local_define( $key, $value, $case_insensitive = false ) {
 		if ( ! defined( $key ) ) {
