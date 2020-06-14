@@ -161,7 +161,7 @@ if ( ! function_exists( 'vsp_dev_copy' ) ) {
 				@mkdir( $dst );
 			}
 			while ( false !== ( $file = readdir( $dir ) ) ) {
-				if ( ! in_array( $file, array( '.', '..', '.git', 'node_module' ), true ) ) {
+				if ( ! in_array( $file, array( '.', '..', '.git', 'node_modules', '.github', '.wordpress-org' ) ) ) {
 					if ( is_dir( $src . '/' . $file ) ) {
 						vsp_dev_copy( $src . '/' . $file, $dst . '/' . $file );
 					} else {
