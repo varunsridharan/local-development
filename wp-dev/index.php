@@ -45,6 +45,7 @@ if ( ! class_exists( 'VSP_Local_WP_Handler' ) ) {
 				VSP_LOCAL_DIR . 'wp-plugins/user-switching'              => 'wp-content/mu-plugins/user-switching/user-switching.php',
 				VSP_LOCAL_DIR . 'wp-plugins/inspector'                   => 'wp-content/mu-plugins/inspector/inspector.php',
 				VSP_LOCAL_DIR . 'wp-plugins/remove-wp-dashboard-widgets' => 'wp-content/mu-plugins/remove-wp-dashboard-widgets/index.php',
+				VSP_LOCAL_DIR . 'wp-plugins/vsp-utility'                 => 'wp-content/mu-plugins/vsp-utility/index.php',
 			);
 
 			add_action( 'phpmailer_init', array( &$this, 'setup_smtp_info' ) );
