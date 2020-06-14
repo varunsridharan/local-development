@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/global/functions.php';
 
+
 vsp_local_define( 'KB_IN_BYTES', ( 1024 ) );
 
 vsp_local_define( 'MB_IN_BYTES', ( 1024 * KB_IN_BYTES ) );
@@ -26,6 +27,7 @@ vsp_local_define( 'LOCAL_SMTP_AUTH', false );
 vsp_local_define( 'WP_DEBUG_LOG_MAX_SIZE', ( KB_IN_BYTES * 200 ) );
 vsp_local_define( 'WP_DEBUG_LOG_OVERFLOW_STORAGE', 'debuglogs' );
 
+vsp_timer( 'vsp-local-process-start' );
 
 if ( file_exists( VSP_LOCAL_DIR . 'vendor/autoload.php' ) ) {
 	require VSP_LOCAL_DIR . 'vendor/autoload.php';

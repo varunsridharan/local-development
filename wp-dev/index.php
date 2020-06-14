@@ -99,7 +99,9 @@ if ( ! class_exists( 'VSP_Local_WP_Handler' ) ) {
 				if ( file_exists( $dist_path ) && $this->is_plugin_allowed( $orginal_path ) ) {
 					include $dist_path;
 				} else {
-					@unlink( ABSPATH . $new_path );
+					if ( file_exists( ABSPATH . $new_path ) ) {
+						@unlink( ABSPATH . $new_path );
+					}
 				}
 			}
 		}
