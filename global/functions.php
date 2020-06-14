@@ -123,12 +123,16 @@ if ( ! function_exists( 'vspdev_link_muplugins' ) ) {
 		}
 
 		if ( $path ) {
-			//if ( file_exists( $path . 'wp-content/mu-plugins/vsp-development.php' ) ) {
-			//	unlink( $path . 'wp-content/mu-plugins/vsp-development.php' );
-			//}
-			if ( ! file_exists( $path . 'wp-content/mu-plugins/vsp-dev.php' ) ) {
+			$new_file    = $path . 'wp-content/mu-plugins/vsp-dev.php';
+			$file_exists = file_exists( $new_file );
+			$is_readable = is_readable( $new_file );
+			$is_readlink = @readlink( $new_file );
+
+			if ( ! $file_exists || $file_exists && ! $is_readable || ! $is_readlink ) {
 				@mkdir( $path . 'wp-content/mu-plugins/' );
-				symlink( VSP_LOCAL_DIR . 'wp-dev/index.php', $path . 'wp-content/mu-plugins/vsp-dev.php' );
+				@unlink( $new_file );
+				clearstatcache( true, $new_file );
+				@symlink( VSP_LOCAL_DIR . 'wp-dev/index.php', $new_file );
 			}
 		}
 	}
@@ -153,7 +157,9 @@ if ( ! function_exists( 'vsp_dev_copy' ) ) {
 	function vsp_dev_copy( $src, $dst ) {
 		if ( is_dir( $src ) ) {
 			$dir = opendir( $src . '/' );
-			@mkdir( $dst );
+			if ( ! file_exists( $dst ) ) {
+				@mkdir( $dst );
+			}
 			while ( false !== ( $file = readdir( $dir ) ) ) {
 				if ( ! in_array( $file, array( '.', '..', '.git', 'node_module' ), true ) ) {
 					if ( is_dir( $src . '/' . $file ) ) {
