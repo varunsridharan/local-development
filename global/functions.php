@@ -74,21 +74,39 @@ if ( ! function_exists( 'is_debug_view' ) ) {
 	 * Checks if its log view request.
 	 */
 	function is_debug_view() {
-		$types = array( 'debug-log', 'debuglog', 'logs', 'wpdebug', 'wplog' );
-		foreach ( $types as $key ) {
-			if ( isset( $_REQUEST[ $key ] ) ) {
-				$file = false;
-				if ( file_exists( $_SERVER['DOCUMENT_ROOT'] . '/wp-content/debug.log' ) ) {
-					$file = $_SERVER['DOCUMENT_ROOT'] . '/wp-content/debug.log';
-				}
+		$file      = false;
+		$http_host = $_SERVER['HTTP_HOST'];
+		$doc_root  = $_SERVER['DOCUMENT_ROOT'];
+		$types     = array( 'debug-log', 'debuglog', 'logs', 'wpdebug', 'wplog' );
 
-				if ( $file ) {
-					global $log_view_config;
-					$log_view_config = array( 'file_path' => $file );
-					require_once VSP_LOCAL_DIR . '/global/logivew.php';
-					exit;
+		if ( strpos( $http_host, '.err' ) || strpos( $http_host, '.error' ) ) {
+			if ( file_exists( $doc_root . '/wp-content/debug.log' ) ) {
+				$file = $doc_root . '/wp-content/debug.log';
+			} else {
+				$file = $doc_root . 'logs/apache/error.log';
+			}
+		} elseif ( strpos( $http_host, '.access' ) || strpos( $http_host, '.acc' ) ) {
+			$file = $doc_root . 'logs/apache/https-access.log';
+		} elseif ( strpos( $http_host, '.logs' ) || strpos( $http_host, '.log' ) ) {
+			if ( isset( $_REQUEST['file'] ) ) {
+				$file = $doc_root . '/' . urldecode( $_REQUEST['file'] );
+			}
+		} else {
+			foreach ( $types as $key ) {
+				if ( isset( $_REQUEST[ $key ] ) ) {
+					if ( file_exists( $doc_root . '/wp-content/debug.log' ) ) {
+						$file = $doc_root . '/wp-content/debug.log';
+						break;
+					}
 				}
 			}
+		}
+
+		if ( $file ) {
+			global $log_view_config;
+			$log_view_config = array( 'file_path' => $file );
+			require_once VSP_LOCAL_DIR . '/global/logivew.php';
+			exit;
 		}
 	}
 }
