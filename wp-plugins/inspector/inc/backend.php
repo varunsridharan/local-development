@@ -20,7 +20,8 @@ class RWI_Backend {
 		add_action( 'wp_ajax_rwi_delete', array( $this, 'wp_ajax_delete' ) );
 
 		// Show screen information in contextual help
-		add_action( 'contextual_help', array( $this, 'screen_help' ), 10, 3 );
+		//add_action( 'contextual_help', array( $this, 'screen_help' ), 10, 3 );
+		add_action( 'current_screen', array( $this, 'screen_help' ), 100 );
 	}
 
 	function show_screen_info() {
@@ -41,8 +42,11 @@ class RWI_Backend {
 	}
 
 	function add_admin_menu() {
-		$this->pages['option'] = add_management_page( 'Option Inspector', 'Option Inspector', 'manage_options', 'option-inspector', [$this, 'render_admin_page'] );
-		add_action( 'load-' . $this->pages['option'], [$this, 'add_meta_boxes'] );
+		$this->pages['option'] = add_management_page( 'Option Inspector', 'Option Inspector', 'manage_options', 'option-inspector', [
+			$this,
+			'render_admin_page',
+		] );
+		add_action( 'load-' . $this->pages['option'], [ $this, 'add_meta_boxes' ] );
 	}
 
 	function render_admin_page() {
@@ -64,7 +68,7 @@ class RWI_Backend {
 			return;
 		}
 		foreach ( $this->pages as $page ) {
-			add_meta_box( 'inspector', 'Inspector', [$this, 'show_meta_box'], $page );
+			add_meta_box( 'inspector', 'Inspector', [ $this, 'show_meta_box' ], $page );
 		}
 	}
 
@@ -80,20 +84,20 @@ class RWI_Backend {
 		<p><?php _e( 'Enter a name in the text box and click the buttons below to view its value or delete it.', 'rwi' ); ?></p>
 		<table class="form-table">
 			<tbody>
-				<tr valign="top">
-					<th scope="row">
-						<label for="rwi-name"><?php _e( 'Name', 'rwi' ); ?></label>
-					</th>
-					<td>
-						<input type="text" id="rwi-name" class="regular-text" />
-					</td>
-				</tr>
+			<tr valign="top">
+				<th scope="row">
+					<label for="rwi-name"><?php _e( 'Name', 'rwi' ); ?></label>
+				</th>
+				<td>
+					<input type="text" id="rwi-name" class="regular-text"/>
+				</td>
+			</tr>
 			</tbody>
 		</table>
 		<p class="submit">
-			<?php submit_button( __( 'View', 'rwi' ), 'primary', '', false, array( 'id' => 'rwi-view') ); ?>
-			<?php submit_button( __( 'Delete', 'rwi' ), 'primary', '', false, array( 'id' => 'rwi-delete') ); ?>
-			<img src="<?php echo esc_url( admin_url( 'images/wpspin_light.gif' ) ); ?>" class="loading" />
+			<?php submit_button( __( 'View', 'rwi' ), 'primary', '', false, array( 'id' => 'rwi-view' ) ); ?>
+			<?php submit_button( __( 'Delete', 'rwi' ), 'primary', '', false, array( 'id' => 'rwi-delete' ) ); ?>
+			<img src="<?php echo esc_url( admin_url( 'images/wpspin_light.gif' ) ); ?>" class="loading"/>
 		</p>
 
 		<div id="rwi-result"></div>
@@ -114,8 +118,8 @@ class RWI_Backend {
 		wp_enqueue_style( 'inspector', RWI_CSS . 'style.css' );
 		wp_enqueue_script( 'inspector', RWI_JS . 'script.js', array( 'jquery-ui-autocomplete', 'wp-ajax-response' ) );
 		$params = array(
-			'nonce_view'		 => wp_create_nonce( 'inspector-view' ),
-			'nonce_delete'	     => wp_create_nonce( 'inspector-delete' ),
+			'nonce_view'         => wp_create_nonce( 'inspector-view' ),
+			'nonce_delete'       => wp_create_nonce( 'inspector-delete' ),
 			'nonce_autocomplete' => wp_create_nonce( 'inspector-autocomplete' ),
 		);
 		wp_localize_script( 'inspector', 'RWI', $params );
@@ -131,13 +135,13 @@ class RWI_Backend {
 
 		switch ( $type ) {
 			case 'post_meta':
-			$post_id = $_POST['post_id'];
-			$values  = $wpdb->get_col( "SELECT DISTINCT meta_key FROM {$wpdb->postmeta} WHERE post_id = '{$post_id}' AND meta_key LIKE '{$term}%'" );
-			break;
+				$post_id = $_POST['post_id'];
+				$values  = $wpdb->get_col( "SELECT DISTINCT meta_key FROM {$wpdb->postmeta} WHERE post_id = '{$post_id}' AND meta_key LIKE '{$term}%'" );
+				break;
 			case 'option':
 			default:
-			$values = $wpdb->get_col( "SELECT DISTINCT option_name FROM {$wpdb->options} WHERE option_name LIKE '{$term}%'" );
-			break;
+				$values = $wpdb->get_col( "SELECT DISTINCT option_name FROM {$wpdb->options} WHERE option_name LIKE '{$term}%'" );
+				break;
 		}
 
 		die( json_encode( $values ) );
@@ -157,19 +161,18 @@ class RWI_Backend {
 
 		switch ( $type ) {
 			case 'post_meta':
-			$post_id = $_POST['post_id'];
+				$post_id = $_POST['post_id'];
 
-			$value = $wpdb->get_col( "SELECT meta_value FROM {$wpdb->postmeta} WHERE post_id = '{$post_id}' AND meta_key = '{$name}'" );
-			if ( empty( $value ) )
-				$this->ajax_response( __( 'Meta key does not exists.', 'rwi' ), 'error' );
-			elseif ( 1 === count( $value ) )
-				$value = array_pop( $value );
-			break;
+				$value = $wpdb->get_col( "SELECT meta_value FROM {$wpdb->postmeta} WHERE post_id = '{$post_id}' AND meta_key = '{$name}'" );
+				if ( empty( $value ) )
+					$this->ajax_response( __( 'Meta key does not exists.', 'rwi' ), 'error' ); elseif ( 1 === count( $value ) )
+					$value = array_pop( $value );
+				break;
 			case 'option':
 			default:
-			if ( false === ( $value = get_option( $name ) ) )
-				$this->ajax_response( __( 'Option does not exists.', 'rwi' ), 'error' );
-			break;
+				if ( false === ( $value = get_option( $name ) ) )
+					$this->ajax_response( __( 'Option does not exists.', 'rwi' ), 'error' );
+				break;
 		}
 
 		$return = print_r( $value, true );
@@ -177,7 +180,7 @@ class RWI_Backend {
 		// Try to unserialize the value
 		$unserialized = @unserialize( $value );
 		if ( 'b:0;' === $value || false !== $unserialized )
-		$return = "Value Type: SERIALIZED\n" . print_r( $unserialized, true );
+			$return = "Value Type: SERIALIZED\n" . print_r( $unserialized, true );
 
 		$html = "<pre>{$return}</pre>";
 
@@ -198,25 +201,25 @@ class RWI_Backend {
 
 		switch ( $type ) {
 			case 'post_meta':
-			$post_id = $_POST['post_id'];
+				$post_id = $_POST['post_id'];
 
-			$value = $wpdb->get_col( "SELECT meta_value FROM {$wpdb->postmeta} WHERE post_id = '{$post_id}' AND meta_key = '{$name}'" );
-			if ( empty( $value ) ) {
-				$this->ajax_response( __( 'Meta key does not exists.', 'rwi' ), 'error' );
-			}
+				$value = $wpdb->get_col( "SELECT meta_value FROM {$wpdb->postmeta} WHERE post_id = '{$post_id}' AND meta_key = '{$name}'" );
+				if ( empty( $value ) ) {
+					$this->ajax_response( __( 'Meta key does not exists.', 'rwi' ), 'error' );
+				}
 
-			delete_post_meta( $post_id, $name );
-			$this->ajax_response( __( 'Meta key deleted successfully.', 'rwi' ), 'success' );
-			break;
+				delete_post_meta( $post_id, $name );
+				$this->ajax_response( __( 'Meta key deleted successfully.', 'rwi' ), 'success' );
+				break;
 			case 'option':
 			default:
-			if ( false === ( $value = get_option( $name ) ) ) {
-				$this->ajax_response( __( 'Option does not exists.', 'rwi' ), 'error' );
-			}
+				if ( false === ( $value = get_option( $name ) ) ) {
+					$this->ajax_response( __( 'Option does not exists.', 'rwi' ), 'error' );
+				}
 
-			delete_option( $name );
-			$this->ajax_response( __( 'Option deleted successfully.', 'rwi' ), 'success' );
-			break;
+				delete_option( $name );
+				$this->ajax_response( __( 'Option deleted successfully.', 'rwi' ), 'success' );
+				break;
 		}
 	}
 
@@ -227,23 +230,19 @@ class RWI_Backend {
 	 * @param string $status
 	 */
 	function ajax_response( $message, $status ) {
-		$response = array( 'what' => 'rwi' );
+		$response         = array( 'what' => 'rwi' );
 		$response['data'] = 'error' === $status ? new WP_Error( 'error', $message ) : $message;
-		$x = new WP_Ajax_Response( $response );
+		$x                = new WP_Ajax_Response( $response );
 		$x->send();
 	}
 
-	function screen_help( $contextual_help, $screen_id, $screen ) {
+	function screen_help() {
+		$screen    = get_current_screen();
+		$screen_id = $screen->id;
 		global $hook_suffix;
 
 		// List screen properties
-		$variables = '<div style="width:50%;float:left;"><strong>Screen variables</strong><ul>'
-		. sprintf( '<li>Screen id: <code>%s</code></li>', $screen_id )
-		. sprintf( '<li>Screen base: <code>%s</code></li>', $screen->base )
-		. sprintf( '<li>Parent base: <code>%s</code></li>', $screen->parent_base )
-		. sprintf( '<li>Parent file: <code>%s</code></li>', $screen->parent_file )
-		. sprintf( '<li>Hook suffix: <code>%s</code></li>', $hook_suffix )
-		. '</ul></div>';
+		$variables = '<div style="width:50%;float:left;"><strong>Screen variables</strong><ul>' . sprintf( '<li>Screen id: <code>%s</code></li>', $screen_id ) . sprintf( '<li>Screen base: <code>%s</code></li>', $screen->base ) . sprintf( '<li>Parent base: <code>%s</code></li>', $screen->parent_base ) . sprintf( '<li>Parent file: <code>%s</code></li>', $screen->parent_file ) . sprintf( '<li>Hook suffix: <code>%s</code></li>', $hook_suffix ) . '</ul></div>';
 
 		// Append global $hook_suffix to the hook stems
 		$hooks = array(
@@ -251,7 +250,7 @@ class RWI_Backend {
 			"<code>admin_print_styles-{$hook_suffix}</code>",
 			"<code>admin_print_scripts-{$hook_suffix}</code>",
 			"<code>admin_head-{$hook_suffix}</code>",
-			"<code>admin_footer-{$hook_suffix}</code>"
+			"<code>admin_footer-{$hook_suffix}</code>",
 		);
 
 		// If add_meta_boxes or add_meta_boxes_{screen_id} is used, list these too
@@ -272,8 +271,6 @@ class RWI_Backend {
 			'id'      => 'rwi-screen-help',
 			'title'   => 'Screen Information',
 			'content' => $help_content,
-		));
-
-		return $contextual_help;
+		) );
 	}
 }
