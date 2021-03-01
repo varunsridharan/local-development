@@ -352,7 +352,7 @@ add_action('wp_enqueue_scripts', 'adminhelper_enqueue_stylesheet');
 add_action('admin_enqueue_scripts', 'adminhelper_enqueue_stylesheet');
 function adminhelper_enqueue_stylesheet(){
 	if(is_user_logged_in() && is_admin_bar_showing()){
-		$src = plugins_url( 'theme-inspector.css', __FILE__ );
+		$src = 'https://wp-template.pc/wp-content/plugins/theme-inspector/theme-inspector.css?ver=5.6.2';#plugins_url( 'theme-inspector.css', __FILE__ );
 		wp_register_style( 'themehelper-style', $src, '', '', 'screen' );
 		wp_enqueue_style( 'themehelper-style' );
 	}
