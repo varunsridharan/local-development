@@ -51,7 +51,11 @@ if ( ! class_exists( 'VSP_Local_WP_Handler' ) ) {
 			add_action( 'phpmailer_init', array( &$this, 'setup_smtp_info' ) );
 			add_action( 'plugins_loaded', array( &$this, 'copy_muplugins' ), -10000 );
 			$this->handle_debug_log_file();
-			$this->copy_plugins();
+
+			if ( ! defined( 'DOING_AJAX' ) ) {
+				$this->copy_plugins();
+			}
+
 		}
 
 		/**
@@ -94,6 +98,15 @@ if ( ! class_exists( 'VSP_Local_WP_Handler' ) ) {
 		public function copy_muplugins() {
 			foreach ( $this->mu_plugins_copy as $orginal_path => $new_path ) {
 				$dist_path = ABSPATH . $new_path;
+				$org_data  = stat( $orginal_path );
+				$dist_data = stat( ABSPATH . dirname( $new_path ) );
+
+				if ( $org_data['mtime'] > $dist_data['mtime'] ) {
+					if ( file_exists( ABSPATH . $new_path ) ) {
+						@unlink( ABSPATH . $new_path );
+					}
+				}
+
 				if ( ! file_exists( $dist_path ) ) {
 					vsp_dev_copy( $orginal_path, ABSPATH . dirname( $new_path ) );
 				}
