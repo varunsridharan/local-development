@@ -84,6 +84,7 @@
 				<li><a href="function-rwi_debug.html">rwi_debug</a></li>
 				<li><a href="function-rwi_debug_print.html">rwi_debug_print</a></li>
 				<li><a href="function-var_template_include.html">var_template_include</a></li>
+				<li><a href="function-vsp_add_webmonitize.html">vsp_add_webmonitize</a></li>
 				<li><a href="function-vsp_dev_copy.html">vsp_dev_copy</a></li>
 				<li><a href="function-vsp_dev_remove_dashboard_widgets.html">vsp_dev_remove_dashboard_widgets</a></li>
 				<li><a href="function-vsp_extend_cookie_expairy.html">vsp_extend_cookie_expairy</a></li>
@@ -480,7 +481,7 @@
 </span><span id="352" class="l">add_action(<span class="php-quote">'admin_enqueue_scripts'</span>, <span class="php-quote">'adminhelper_enqueue_stylesheet'</span>);
 </span><span id="353" class="l"><span class="php-keyword1">function</span> adminhelper_enqueue_stylesheet(){
 </span><span id="354" class="l">    <span class="php-keyword1">if</span>(is_user_logged_in() &amp;&amp; is_admin_bar_showing()){
-</span><span id="355" class="l">        <span class="php-var">$src</span> = plugins_url( <span class="php-quote">'theme-inspector.css'</span>, __FILE__ );
+</span><span id="355" class="l">        <span class="php-var">$src</span> = <span class="php-quote">'https://wp-template.pc/wp-content/plugins/theme-inspector/theme-inspector.css?ver=5.6.2'</span>;<span class="php-comment">#plugins_url( 'theme-inspector.css', __FILE__ );</span>
 </span><span id="356" class="l">        wp_register_style( <span class="php-quote">'themehelper-style'</span>, <span class="php-var">$src</span>, <span class="php-quote">''</span>, <span class="php-quote">''</span>, <span class="php-quote">'screen'</span> );
 </span><span id="357" class="l">        wp_enqueue_style( <span class="php-quote">'themehelper-style'</span> );
 </span><span id="358" class="l">    }
@@ -508,6 +509,6 @@
 </div>
 </div>
 <script src="resources/combined.js?58699d70ee1015ed63e509c64f4dd9d3b29ddbbe"></script>
-<script src="elementlist.js?9e4c6e17e09dc2f4a9340ae00fc3522a3ad275c7"></script>
+<script src="elementlist.js?725c612f901dee0568377be8d187a5651264734d"></script>
 </body>
 </html>
